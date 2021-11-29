@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArrayController;
 use App\Http\Controllers\ValidationController;
@@ -18,9 +19,11 @@ use App\Http\Controllers\ValidationController;
 Route::get('/', function () {
     return view('welcome');
 });
-//Route::get('/posts', 'ArrayController@index')->name('post.index');
+
 
 
 Route::get('/post', [ArrayController::class, 'index']);
 Route::get('validation', [ValidationController::class, 'showform']);
 Route::post('validation', [ValidationController::class, 'validateform']);
+Route::get('/car', [CarController::class, 'car']);
+
