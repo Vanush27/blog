@@ -4,6 +4,7 @@ use App\Http\Controllers\ArrayController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\ValidationController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 
@@ -47,3 +48,7 @@ Route::get('key_collection', [CollectionController::class, 'read_keys']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/company/{id}', [ArrayController::class,'index']); //->name('company.index');
+Route::get('/user/{id}', [ArrayController::class,'index']); //->name('user.index');
