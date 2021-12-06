@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Company;
-use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class ArrayController extends Controller
 {
@@ -22,7 +21,11 @@ class ArrayController extends Controller
 //        $items = User::find(1)->items;
 //        dd($items->toArray());
 
-        $company = Company::find(1)->user;
-        dd($company->toArray());
+//        $company = Company::find(1)->user;
+//        dd($company->toArray());
+
+        $data = DB::table('files')->get();
+
+        return view('file-view', compact('data'));
     }
 }
